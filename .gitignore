@@ -1,0 +1,12 @@
+# folders
+.idea
+target
+lib
+classes
+
+# files
+*.iml
+*.sc
+*.swp
+
+lib_managed
