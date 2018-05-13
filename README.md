@@ -13,7 +13,7 @@ image in any environment, I created this docker container which is used by the s
 
 [tenshi/graalvm-native-image](https://hub.docker.com/r/tenshi/graalvm-native-image/)   
 
-All packaging logic can be found in the `packaging.sbt`, including 2 sbt tasks: `nativeImage` and `nativeImageDocker`.
+All packaging logic can be found in the [`packaging.sbt`](https://github.com/OlegIlyenko/sangria-http4s-graalvm-example/blob/master/packaging.sbt), including 2 sbt tasks: `nativeImage` and `nativeImageDocker`.
 
 In order to compile a native image, just run:
 
