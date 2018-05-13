@@ -85,7 +85,7 @@ nativeImageDocker := {
   Process(dockerProcess, imageParent) ! log
 
   s.log.success("Your docker image is ready! Just run:" )
-  s.log.success(s"  docker run -it --rm ${nativeImageName.value}" )
+  s.log.success(s"  docker run -it --rm -p 8080:8080 ${nativeImageName.value}" )
 }
 
 def relativePath(path: File): String = path.toString.replaceAll("\\\\", "/")
