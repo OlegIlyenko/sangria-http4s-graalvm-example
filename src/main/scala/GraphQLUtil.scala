@@ -16,6 +16,7 @@ object GraphQLUtil {
     Executor.execute(SchemaDefinition.StarWarsSchema, query, new CharacterRepo,
       variables = if (variables.isNull) Json.obj() else variables,
       operationName = operationName,
+      exceptionHandler = exceptionHandler,
       deferredResolver = DeferredResolver.fetchers(SchemaDefinition.characters))
 
   def executeAndPrintGraphQL(query: String) =
