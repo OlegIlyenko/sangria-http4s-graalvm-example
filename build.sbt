@@ -12,7 +12,6 @@ libraryDependencies ++= Seq(
   "org.sangria-graphql" %% "sangria-circe" % "1.2.1",
 
   "org.http4s" %% "http4s-blaze-server" % "0.18.9",
-  "org.http4s" %% "http4s-blaze-client" % "0.18.9",
   "org.http4s" %% "http4s-circe" % "0.18.9",
   "org.http4s" %% "http4s-dsl" % "0.18.9",
 
