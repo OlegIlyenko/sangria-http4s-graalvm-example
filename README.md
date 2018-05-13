@@ -35,7 +35,7 @@ it will create a local docker container which you can run like this:
 docker run -it --rm -p 8080:8080 sangria-http4s-graalvm-example server
 ``` 
 
-The scala application itself has a foloing usage:
+The scala application itself has a following usage:
 
 ```
 Usage: sangria-http4s-graalvm-example command [arguments..]
