@@ -17,3 +17,5 @@ libraryDependencies ++= Seq(
 
   "ch.qos.logback" % "logback-classic" % "1.2.3",
   "io.circe" %% "circe-optics" % "0.9.3")
+
+resolvers += "Sonatype snapshots" at "https://oss.sonatype.org/content/repositories/snapshots/"
