@@ -29,8 +29,17 @@ nativeImage := {
   val s = streams.value
   val log = ProcessLogger(s.log.info(_), s.log.error(_))
 
+  val managedDir = managedDirectory.value
   val packagedFile = Keys.`package`.in(Compile).value.relativeTo(baseDir) // make sure that package is built
-  val deps = dependencyClasspath.in(Compile).value.toVector.map(_.data.relativeTo(baseDir))
+  val deps = dependencyClasspath.in(Compile).value.toVector.map { dep ⇒
+    dep.data.relativeTo(baseDir).orElse {
+      // For some reason sbt sometimes decides to use the scala-library from `~/.sbt/boot` (which is outside of the project dir)
+      // As a workaround we copy the file in lib_managed and use the copy instead (shouldn't cause name collisions)
+      val inManaged = managedDir / dep.data.name
+      IO.copy(Seq(dep.data → inManaged))
+      inManaged.relativeTo(baseDir)
+    }
+  }
   val classpath = (deps :+ packagedFile).flatten
   val main = mainClass.in(Compile).value.getOrElse(sys.error("Main class is not configured"))
 
